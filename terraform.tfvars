@@ -7,6 +7,7 @@ host_project_id              = "trinnex-host1"
 service_account_roles        = [
   "roles/resourcemanager.projectIamAdmin",
   "roles/iam.serviceAccountAdmin",
+  "roles/iam.serviceAccountUser",
   "roles/compute.viewer",
   "roles/container.clusterAdmin",
   "roles/container.developer",
