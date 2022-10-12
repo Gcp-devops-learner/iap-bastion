@@ -36,3 +36,21 @@ module "bastion" {
   service_account_roles = var.service_account_roles
   scopes                = var.scopes
 }
+
+resource "google_project_iam_member" "project" {
+  project = var.network_project_id
+  role    = "roles/editor"
+  member = module.bastion.service_account
+  depends_on = [
+    module.bastion
+  ]
+}
+
+resource "google_project_iam_member" "project" {
+  project = var.network_project_id
+  role    = "roles/resourcemanager.projectIamAdmin"
+  member = module.bastion.service_account
+  depends_on = [
+    module.bastion
+  ]
+}
