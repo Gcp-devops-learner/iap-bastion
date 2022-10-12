@@ -16,6 +16,7 @@ data "template_file" "startup_script" {
     https://apt.releases.hashicorp.com $(lsb_release -cs) main" | \
     sudo tee /etc/apt/sources.list.d/hashicorp.list
   sudo apt -y update && sudo apt-get  -y install terraform  
+  sudo apt-get install -y kubectl
   EOF
 }
 
