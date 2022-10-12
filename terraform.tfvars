@@ -11,5 +11,6 @@ service_account_roles        = [
   "roles/compute.viewer",
   "roles/container.clusterAdmin",
   "roles/container.developer",
-  "roles/storage.admin"
+  "roles/storage.admin",
+  "roles/gkehub.admin"
 ]
