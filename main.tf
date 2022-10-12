@@ -38,19 +38,19 @@ module "bastion" {
   scopes                = var.scopes
 }
 
-resource "google_project_iam_member" "project" {
-  project = var.network_project_id
+resource "google_project_iam_member" "editor" {
+  project = var.host_project_id
   role    = "roles/editor"
-  member = module.bastion.service_account
+  member = "serviceAccount:${module.bastion.service_account}"
   depends_on = [
     module.bastion
   ]
 }
 
-resource "google_project_iam_member" "project" {
-  project = var.network_project_id
+resource "google_project_iam_member" "iamadmin" {
+  project = var.host_project_id
   role    = "roles/resourcemanager.projectIamAdmin"
-  member = module.bastion.service_account
+  member = "serviceAccount:${module.bastion.service_account}"
   depends_on = [
     module.bastion
   ]
